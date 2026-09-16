@@ -1,0 +1,1 @@
+export { sendGrievanceEmail } from "./sendGrievanceEmail";

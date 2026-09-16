@@ -1,0 +1,309 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-space-grotesk: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-inter: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* RUDRA Custom Theme Tokens (Storm & Calm Amber Theme) */
+  --color-rudra-storm: #232733;
+  --color-rudra-storm-light: #2D3242;
+  --color-rudra-storm-dark: #161923;
+  --color-rudra-storm-border: #3A4054;
+
+  --color-rudra-amber: #F5B942;
+  --color-rudra-amber-hover: #E5A320;
+  --color-rudra-amber-light: #F8CB68;
+  --color-rudra-amber-dim: rgba(245, 185, 66, 0.15);
+
+  --color-rudra-bg: #0C0E14;
+  --color-rudra-surface: #141722;
+  --color-rudra-surface-hover: #1C2130;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  /* Storm & Calm Theme for RUDRA */
+  --background: #0C0E14;
+  --foreground: #F0F4F8;
+  --card: #141722;
+  --card-foreground: #F0F4F8;
+  --popover: #141722;
+  --popover-foreground: #F0F4F8;
+  --primary: #232733;
+  --primary-foreground: #F0F4F8;
+  --secondary: #1C2130;
+  --secondary-foreground: #F8FAFC;
+  --muted: #181C28;
+  --muted-foreground: #94A3B8;
+  --accent: #F5B942;
+  --accent-foreground: #0C0E14;
+  --destructive: #EF4444;
+  --border: #232838;
+  --input: #1E2332;
+  --ring: #F5B942;
+  --radius: 0.625rem;
+  --sidebar: #141722;
+  --sidebar-foreground: #F0F4F8;
+  --sidebar-primary: #F5B942;
+  --sidebar-primary-foreground: #0C0E14;
+  --sidebar-accent: #232733;
+  --sidebar-accent-foreground: #F0F4F8;
+  --sidebar-border: #232838;
+  --sidebar-ring: #F5B942;
+}
+
+.dark {
+  --background: #0C0E14;
+  --foreground: #F0F4F8;
+  --card: #141722;
+  --card-foreground: #F0F4F8;
+  --popover: #141722;
+  --popover-foreground: #F0F4F8;
+  --primary: #232733;
+  --primary-foreground: #F0F4F8;
+  --secondary: #1C2130;
+  --secondary-foreground: #F8FAFC;
+  --muted: #181C28;
+  --muted-foreground: #94A3B8;
+  --accent: #F5B942;
+  --accent-foreground: #0C0E14;
+  --destructive: #EF4444;
+  --border: #232838;
+  --input: #1E2332;
+  --ring: #F5B942;
+  --sidebar: #141722;
+  --sidebar-foreground: #F0F4F8;
+  --sidebar-primary: #F5B942;
+  --sidebar-primary-foreground: #0C0E14;
+  --sidebar-accent: #232733;
+  --sidebar-accent-foreground: #F0F4F8;
+  --sidebar-border: #232838;
+  --sidebar-ring: #F5B942;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground overflow-x-hidden max-w-full;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  }
+  html {
+    @apply font-sans overflow-x-hidden max-w-full;
+  }
+}
+
+/* Custom Utility Classes for RUDRA Superhero Design System */
+
+@utility font-heading {
+  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility font-sans {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Glow Borders */
+@utility glow-border {
+  border: 1px solid rgba(245, 185, 66, 0.4);
+  box-shadow: 0 0 15px rgba(245, 185, 66, 0.25), inset 0 0 10px rgba(245, 185, 66, 0.05);
+}
+
+@utility glow-border-amber {
+  border: 1px solid rgba(245, 185, 66, 0.6);
+  box-shadow: 0 0 20px rgba(245, 185, 66, 0.4), inset 0 0 15px rgba(229, 163, 32, 0.15);
+}
+
+@utility glow-border-storm {
+  border: 1px solid #3A4054;
+  box-shadow: 0 0 20px rgba(35, 39, 51, 0.6), inset 0 0 15px rgba(45, 50, 66, 0.2);
+}
+
+/* Subtle Card Shadow */
+@utility shadow-subtle {
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(12, 14, 20, 0.6);
+}
+
+@utility rudra-card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(12, 14, 20, 0.6);
+  border-radius: var(--radius);
+  backdrop-filter: blur(12px);
+}
+
+/* Chat Bubbles */
+@utility chat-bubble-visitor {
+  background-color: #181C28;
+  color: #E2E8F0;
+  border: 1px solid #282E40;
+  border-radius: 1.25rem 1.25rem 0.25rem 1.25rem;
+  padding: 0.75rem 1.25rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+@utility chat-bubble-rudra {
+  background: linear-gradient(135deg, #171B26 0%, #202534 100%);
+  color: #F8FAFC;
+  border: 1px solid rgba(245, 185, 66, 0.45);
+  border-radius: 1.25rem 1.25rem 1.25rem 0.25rem;
+  padding: 0.75rem 1.25rem;
+  box-shadow: 0 4px 20px rgba(245, 185, 66, 0.2), 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Primary and Secondary Button Utilities */
+@utility btn-primary {
+  background-color: #F5B942;
+  color: #0C0E14;
+  font-weight: 600;
+  padding: 0.625rem 1.25rem;
+  border-radius: calc(var(--radius) * 0.8);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 15px rgba(245, 185, 66, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #E5A320;
+    box-shadow: 0 0 25px rgba(245, 185, 66, 0.6);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@utility btn-secondary {
+  background-color: #232733;
+  color: #F0F4F8;
+  border: 1px solid #3A4054;
+  font-weight: 500;
+  padding: 0.625rem 1.25rem;
+  border-radius: calc(var(--radius) * 0.8);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #2D3242;
+    border-color: rgba(245, 185, 66, 0.5);
+    color: #FFFFFF;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* Hero Ambient Background Streaks (Meteors/Embers) */
+@keyframes storm-ember-streak {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-35deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: var(--streak-opacity, 0.25);
+  }
+  85% {
+    opacity: var(--streak-opacity, 0.25);
+  }
+  100% {
+    transform: translate3d(240px, 540px, 0) rotate(-35deg);
+    opacity: 0;
+  }
+}
+
+@keyframes storm-ember-curved-left {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-20deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: var(--streak-opacity, 0.3);
+  }
+  80% {
+    opacity: var(--streak-opacity, 0.3);
+  }
+  100% {
+    transform: translate3d(210px, 520px, 0) rotate(-48deg);
+    opacity: 0;
+  }
+}
+
+@keyframes storm-ember-curved-right {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-48deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: var(--streak-opacity, 0.3);
+  }
+  80% {
+    opacity: var(--streak-opacity, 0.3);
+  }
+  100% {
+    transform: translate3d(150px, 520px, 0) rotate(-18deg);
+    opacity: 0;
+  }
+}
+
+.animate-ember-streak {
+  animation: storm-ember-streak var(--streak-duration, 7s) linear infinite;
+  animation-delay: var(--streak-delay, 0s);
+  will-change: transform, opacity;
+}
+
+.animate-ember-curved-left {
+  animation: storm-ember-curved-left var(--streak-duration, 7s) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: var(--streak-delay, 0s);
+  will-change: transform, opacity;
+}
+
+.animate-ember-curved-right {
+  animation: storm-ember-curved-right var(--streak-duration, 7s) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: var(--streak-delay, 0s);
+  will-change: transform, opacity;
+}
