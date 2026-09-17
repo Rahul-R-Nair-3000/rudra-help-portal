@@ -136,18 +136,25 @@ export function IntroSequence() {
               </svg>
             </div>
 
-            {/* "RUDRA" Branding Text Fade In */}
+            {/* "RUDRA" Main Title Fade In */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="space-y-1"
             >
               <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-widest">
                 RUDRA
               </h2>
+            </motion.div>
+
+            {/* Subtitle Line: "The Lightbringer" - Fading in slightly after main title */}
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
+            >
               <p className="text-[10px] sm:text-xs font-semibold text-[#F5B942] uppercase tracking-[0.25em]">
-                Sovereign Sentinel
+                The Lightbringer
               </p>
             </motion.div>
           </div>

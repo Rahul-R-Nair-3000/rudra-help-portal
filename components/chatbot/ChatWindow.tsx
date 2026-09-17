@@ -166,9 +166,12 @@ export function ChatWindow() {
   };
 
   return (
-    <div id="chatbot" className="max-w-4xl mx-auto w-full px-2 sm:px-4 py-6 sm:py-10 md:py-12 overflow-x-hidden">
+    <div id="chatbot" className="relative max-w-5xl mx-auto w-full px-2 sm:px-4 py-8 sm:py-12 md:py-16 [overflow-x:clip]">
+      {/* Two Big Heavenly Celestial Storms in Background */}
+      <HeavenlyCelestialStorms />
+
       {/* Outer Card Container with Glow Border */}
-      <div className="rudra-card glow-border-amber rounded-xl sm:rounded-2xl border border-[#3A4054] shadow-[0_12px_40px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col h-[520px] xs:h-[580px] sm:h-[650px] md:h-[700px] max-h-[85vh] relative w-full">
+      <div className="rudra-card glow-border-amber rounded-xl sm:rounded-2xl border border-[#3A4054] shadow-[0_12px_40px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col h-[520px] xs:h-[580px] sm:h-[650px] md:h-[700px] max-h-[85vh] relative z-10 w-full">
         
         {/* Header Bar - Responsive for 375px Mobile */}
         <div className="bg-[#141722] border-b border-[#232838] px-3 sm:px-6 py-2.5 sm:py-4 flex items-center justify-between z-10 shrink-0">
@@ -213,7 +216,9 @@ export function ChatWindow() {
         </div>
 
         {/* Messages Container Area - Responsive for 375px Mobile */}
-        <div className="flex-1 overflow-y-auto p-3 sm:p-6 space-y-4 sm:space-y-6 bg-[#0C0E14]/80 backdrop-blur-md">
+        <div className="flex-1 overflow-y-auto p-3 sm:p-6 space-y-4 sm:space-y-6 bg-[#0C0E14]/75 backdrop-blur-md relative">
+          {/* VUI Soundwave Voice Aura Background */}
+          <VUIVoiceAuraBackground isProcessing={isLoadingAi} />
           {/* Session Start Divider */}
           <div className="flex items-center justify-center my-1 sm:my-2">
             <span className="px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[11px] font-mono text-[#64748B] bg-[#141722] border border-[#232838] text-center leading-tight">
@@ -582,6 +587,111 @@ export function ChatWindow() {
             </Button>
           </form>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function VUIVoiceAuraBackground({ isProcessing }: { isProcessing: boolean }) {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center select-none">
+      {/* Central VUI Voice Aura Orb */}
+      <div className={`relative w-72 h-72 sm:w-96 sm:h-96 transition-all duration-700 ${isProcessing ? 'scale-110 opacity-70' : 'opacity-40'}`}>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F5B942]/20 via-[#38BDF8]/20 to-[#A855F7]/20 rounded-full blur-[70px] animate-pulse" style={{ animationDuration: isProcessing ? '2s' : '5s' }} />
+        
+        {/* Pulsing Concentric Soundwave Rings */}
+        <div className={`absolute inset-4 rounded-full border border-[#F5B942]/30 ${isProcessing ? 'animate-ping' : 'animate-pulse'}`} style={{ animationDuration: isProcessing ? '1.5s' : '4s' }} />
+        <div className="absolute inset-12 rounded-full border border-[#38BDF8]/30 animate-pulse" style={{ animationDuration: '3s' }} />
+        <div className="absolute inset-20 rounded-full border border-[#A855F7]/25 animate-pulse" style={{ animationDuration: '4.5s' }} />
+      </div>
+
+      {/* Dynamic VUI Soundwave Frequency Bar Visualizer */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1 opacity-50">
+        {[40, 70, 30, 85, 50, 95, 60, 40, 80, 55, 90, 45, 65, 35, 75, 50].map((height, i) => (
+          <span
+            key={i}
+            className="w-1 rounded-full bg-gradient-to-t from-[#F5B942] to-[#38BDF8] transition-all duration-300"
+            style={{
+              height: isProcessing ? `${Math.max(14, (height * 0.4))}px` : `${Math.max(6, (height * 0.2))}px`,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function HeavenlyCelestialStorms() {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+      {/* Heavenly Celestial Storm 1 (Top-Left Vortex) */}
+      <div className="absolute -top-24 -left-20 sm:-top-36 sm:-left-36 w-[480px] h-[480px] sm:w-[680px] sm:h-[680px] opacity-85 select-none pointer-events-none">
+        {/* Deep Ambient Heavenly Glow */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F5B942]/25 via-[#38BDF8]/20 to-transparent rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '7s' }} />
+
+        {/* Swirling Heavenly Celestial SVG Storm Arms */}
+        <svg viewBox="0 0 500 500" className="w-full h-full animate-[spin_40s_linear_infinite]">
+          <defs>
+            <linearGradient id="celestialStorm1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#F5B942" stopOpacity="0.9" />
+              <stop offset="45%" stopColor="#38BDF8" stopOpacity="0.6" />
+              <stop offset="80%" stopColor="#C084FC" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#0C0E14" stopOpacity="0" />
+            </linearGradient>
+            <filter id="celestialGlow1">
+              <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          {/* Celestial Orbital Tempest Arms */}
+          <ellipse cx="250" cy="250" rx="220" ry="90" fill="none" stroke="url(#celestialStorm1)" strokeWidth="3" strokeDasharray="160 90 210 50" transform="rotate(-35 250 250)" filter="url(#celestialGlow1)" />
+          <ellipse cx="250" cy="250" rx="180" ry="70" fill="none" stroke="#F8CB68" strokeWidth="2.2" strokeDasharray="90 130" transform="rotate(40 250 250)" opacity="0.8" />
+          <ellipse cx="250" cy="250" rx="140" ry="50" fill="none" stroke="#38BDF8" strokeWidth="2" strokeDasharray="120 60" transform="rotate(-70 250 250)" opacity="0.85" />
+          <ellipse cx="250" cy="250" rx="95" ry="32" fill="none" stroke="#E9D5FF" strokeWidth="1.5" strokeDasharray="70 40" transform="rotate(15 250 250)" opacity="0.9" />
+
+          {/* Heavenly Celestial Eye Core */}
+          <circle cx="250" cy="250" r="36" fill="#F5B942" fillOpacity="0.3" filter="url(#celestialGlow1)" />
+          <circle cx="250" cy="250" r="14" fill="#FFFFFF" fillOpacity="0.95" filter="url(#celestialGlow1)" />
+        </svg>
+      </div>
+
+      {/* Heavenly Celestial Storm 2 (Bottom-Right Vortex) */}
+      <div className="absolute -bottom-24 -right-20 sm:-bottom-36 sm:-right-36 w-[480px] h-[480px] sm:w-[680px] sm:h-[680px] opacity-85 select-none pointer-events-none">
+        {/* Deep Ambient Heavenly Glow */}
+        <div className="absolute inset-0 bg-gradient-to-tl from-[#38BDF8]/25 via-[#C084FC]/20 to-transparent rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '9s' }} />
+
+        {/* Reverse Swirling Heavenly Celestial SVG Storm Arms */}
+        <svg viewBox="0 0 500 500" className="w-full h-full animate-[spin_50s_linear_infinite_reverse]">
+          <defs>
+            <linearGradient id="celestialStorm2" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.9" />
+              <stop offset="45%" stopColor="#F5B942" stopOpacity="0.6" />
+              <stop offset="80%" stopColor="#F472B6" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#0C0E14" stopOpacity="0" />
+            </linearGradient>
+            <filter id="celestialGlow2">
+              <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          {/* Celestial Orbital Tempest Arms */}
+          <ellipse cx="250" cy="250" rx="230" ry="95" fill="none" stroke="url(#celestialStorm2)" strokeWidth="3" strokeDasharray="170 80 190 60" transform="rotate(30 250 250)" filter="url(#celestialGlow2)" />
+          <ellipse cx="250" cy="250" rx="185" ry="75" fill="none" stroke="#38BDF8" strokeWidth="2.2" strokeDasharray="110 110" transform="rotate(-55 250 250)" opacity="0.8" />
+          <ellipse cx="250" cy="250" rx="135" ry="45" fill="none" stroke="#F5B942" strokeWidth="2" strokeDasharray="100 70" transform="rotate(75 250 250)" opacity="0.85" />
+          <ellipse cx="250" cy="250" rx="90" ry="30" fill="none" stroke="#E9D5FF" strokeWidth="1.5" strokeDasharray="60 50" transform="rotate(-20 250 250)" opacity="0.9" />
+
+          {/* Heavenly Celestial Eye Core */}
+          <circle cx="250" cy="250" r="38" fill="#38BDF8" fillOpacity="0.3" filter="url(#celestialGlow2)" />
+          <circle cx="250" cy="250" r="15" fill="#FFFFFF" fillOpacity="0.95" filter="url(#celestialGlow2)" />
+        </svg>
       </div>
     </div>
   );

@@ -1,0 +1,7 @@
+{
+  "frameCount": 100,
+  "width": 1920,
+  "height": 1080,
+  "aspectRatio": 1.778,
+  "framePattern": "/frames/frame_%04d.webp"
+}
